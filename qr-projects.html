@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Proyectos - QR y Enlaces</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      color: #667eea;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .project-description {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .qr-container {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      min-height: 250px;
+    }
+
+    .link-section {
+      margin-top: 20px;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      margin: 5px;
+    }
+
+    .link-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+    }
+
+    .url-text {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      word-break: break-all;
+      color: #333;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .info-banner {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      padding: 20px;
+      border-radius: 15px;
+      color: white;
+      text-align: center;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-banner h2 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .qr-container {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>📱 Mis Proyectos - Códigos QR</h1>
+
+  <div class="info-banner">
+    <h2>✨ Escanea cualquier código QR con tu teléfono para acceder al proyecto</h2>
+    <p>También puedes copiar y compartir los enlaces directos</p>
+  </div>
+
+  <div class="projects-grid">
+    
+    <!-- Proyecto 1: Inclusión Financiera -->
+    <div class="project-card">
+      <div class="emoji">📊</div>
+      <div class="project-title">Inclusión Financiera Digital</div>
+      <div class="project-description">
+        Análisis completo sobre la inclusión financiera digital en México, con gráficos y estadísticas detalladas por región, sexo y escolaridad.
+      </div>
+      <div class="qr-container" id="qr1"></div>
+      <a href="https://garciarojasmariam-source.github.io/Bancarias/index2.html" class="link-button" target="_blank">Abrir proyecto</a>
+      <div class="url-text">
+        garciarojasmariam-source.github.io/Bancarias/index2.html
+      </div>
+    </div>
+
+    <!-- Proyecto 2: Pink Bank -->
+    <div class="project-card">
+      <div class="emoji">💳</div>
+      <div class="project-title">Pink Bank - Banca Digital</div>
+      <div class="project-description">
+        Landing page moderno de Pink Bank, una plataforma de banca digital diseñada para mujeres del sur de México con enfoque en inclusión financiera.
+      </div>
+      <div class="qr-container" id="qr2"></div>
+      <a href="https://garciarojasmariam-source.github.io/Bancarias/index3.html" class="link-button" target="_blank">Abrir proyecto</a>
+      <div class="url-text">
+        garciarojasmariam-source.github.io/Bancarias/index3.html
+      </div>
+    </div>
+
+    <!-- Proyecto 3: Reloj Mundial -->
+    <div class="project-card">
+      <div class="emoji">⏰</div>
+      <div class="project-title">Reloj Digital Mundial</div>
+      <div class="project-description">
+        Reloj interactivo que muestra la hora actual en diferentes zonas horarias alrededor del mundo, con la posibilidad de agregar y eliminar ciudades.
+      </div>
+      <div class="qr-container" id="qr3"></div>
+      <a href="https://garciarojasmariam-source.github.io/Bancarias/reloj-mundial.html" class="link-button" target="_blank">Abrir proyecto</a>
+      <div class="url-text">
+        garciarojasmariam-source.github.io/Bancarias/reloj-mundial.html
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-banner">
+    <h2>🔗 Repositorio Completo</h2>
+    <p>Todos los proyectos están disponibles en GitHub</p>
+    <a href="https://github.com/garciarojasmariam-source/Bancarias" class="link-button" target="_blank">Ver repositorio</a>
+    <div class="qr-container" id="qrRepo" style="max-width: 250px; margin: 20px auto;"></div>
+  </div>
+
+</div>
+
+<script>
+  // Generar códigos QR
+  const qrConfigs = [
+    { elementId: 'qr1', url: 'https://garciarojasmariam-source.github.io/Bancarias/index2.html' },
+    { elementId: 'qr2', url: 'https://garciarojasmariam-source.github.io/Bancarias/index3.html' },
+    { elementId: 'qr3', url: 'https://garciarojasmariam-source.github.io/Bancarias/reloj-mundial.html' },
+    { elementId: 'qrRepo', url: 'https://github.com/garciarojasmariam-source/Bancarias' }
+  ];
+
+  qrConfigs.forEach(config => {
+    new QRCode(document.getElementById(config.elementId), {
+      text: config.url,
+      width: 220,
+      height: 220,
+      colorDark: "#667eea",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  });
+</script>
+
+</body>
+</html>
